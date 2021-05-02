@@ -530,6 +530,10 @@ class GoogleDriveHelper:
                             msg += f' <b>| <a href="{siurl}">🚀 𝐈𝐧𝐝𝐞𝐱 𝐋𝐢𝐧𝐤 🚀</a></b>'
                         else:
                             msg += f' <b>| <a href="{url}">🚀 𝐈𝐧𝐝𝐞𝐱 𝐋𝐢𝐧𝐤 🚀</a></b>'
+                elif file.get('mimeType') == 'application/vnd.google-apps.shortcut':
+                    msg += f"⁍<a href='https://drive.google.com/drive/folders/{file.get('id')}'>{file.get('name')}" \
+                        f"</a> (shortcut)"
+                    # Excluded index link as indexes cant download or open these shortcuts
                 else:
                     furl = f"https://drive.google.com/uc?id={file.get('id')}&export=download"
                     msg += f"⁍<code>{file.get('name')}<br>({get_readable_file_size(int(file.get('size')))})📄</code><br>"
@@ -571,9 +575,9 @@ class GoogleDriveHelper:
             if self.num_of_path > 1:
                 self.edit_telegraph()
 
-            msg = f"<b>Search Results For {fileName} 👇</b>"
+            msg = f"<b>🔎 Search Results For <i>{fileName}</i></b> \n<b>📚 Found {len(response['files'])} results</b>"
             buttons = button_build.ButtonMaker()   
-            buttons.buildbutton("🔎 HERE 🔎", f"https://telegra.ph/{self.path[0]}")
+            buttons.buildbutton("🔎 Click HERE 🔎", f"https://telegra.ph/{self.path[0]}")
 
             return msg, InlineKeyboardMarkup(buttons.build_menu(1))
 

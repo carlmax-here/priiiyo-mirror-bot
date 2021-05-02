@@ -9,7 +9,7 @@ from sys import executable
 from datetime import datetime
 import pytz
 import time
-from telegram import ParseMode
+from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram import Update
 from telegram.ext import CallbackContext, CommandHandler
 from pmb import bot, dispatcher, updater, botStartTime, AUTHORIZED_CHATS, IMAGE_URL
@@ -73,9 +73,11 @@ def chat_list(update: Update, context: CallbackContext):
 
 
 def repo(update: Update, context: CallbackContext):
-    bot.send_message(update.message.chat_id,
-    reply_to_message_id=update.message.message_id,
-    text="Repo: https://github.com/priiiyo/priiiyo-mirror-bot\nGroup: https://t.me/PriiiyoMirror", disable_web_page_preview=True)
+    button = [
+    [InlineKeyboardButton("Repo", url=f"https://github.com/priiiyo/priiiyo-mirror-bot")],
+    [InlineKeyboardButton("Support Group", url=f"https://t.me/PriiiyoMirror")]]
+    reply_markup = InlineKeyboardMarkup(button)
+    update.effective_message.reply_photo(IMAGE_URL, reply_markup=reply_markup)
 
 
 def restart(update, context):
