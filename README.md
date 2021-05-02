@@ -189,6 +189,7 @@ Fork this repo then upload **token.pickle** to your forks
 ## Creating a Heroku App
 
 - Create a [free Heroku Account](https://id.heroku.com/signup/login).
+
 - Install Heroku CLI:
 ```
 sudo snap install --classic heroku
@@ -222,8 +223,7 @@ git commit -m "Added Creds."
 git push heroku master --force
 ```
 - Restart Worker by these commands,You can Do it manually too in heroku.
-- For Turning off the Bot:
-```
+
 # Using CLI
 
 - For Turning off the Bot:
