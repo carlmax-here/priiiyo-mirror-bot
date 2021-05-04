@@ -59,7 +59,7 @@ def start(update: Update, context: CallbackContext):
     start_string = f'''
 This is a bot which can mirror all your links to Google drive!
 
-👲 Modded By: @Priiiyo
+👲 Modded By: @carlmax_here
 
 Type /{BotCommands.HelpCommand} to get a list of available commands
 '''
@@ -74,8 +74,8 @@ def chat_list(update: Update, context: CallbackContext):
 
 def repo(update: Update, context: CallbackContext):
     button = [
-    [InlineKeyboardButton("Repo", url=f"https://github.com/priiiyo/priiiyo-mirror-bot")],
-    [InlineKeyboardButton("Support Group", url=f"https://t.me/PriiiyoMirror")]]
+    [InlineKeyboardButton("Series Group", url=f"https://t.me/SERIES4USGroup")],
+    [InlineKeyboardButton("Movie Group", url=f"https://t.me/cinemapedika")]]
     reply_markup = InlineKeyboardMarkup(button)
     update.effective_message.reply_photo(IMAGE_URL, reply_markup=reply_markup)
 
